@@ -1,3 +1,15 @@
+function addBorder(picture) {
+  const bordered = picture.map(string => {
+    return `*${string}*`;
+  });
+  const ends = '*'.repeat(bordered[0].length);
+  bordered.unshift(ends);
+  bordered.push(ends);
+  return bordered;
+}
+
+addBorder([]);
+
 function alternatingSums(a) {
   const sums = a.reduce((teams, person, index) => {
     if (index % 2) {
