@@ -1,3 +1,17 @@
+function alternatingSums(a) {
+  const sums = a.reduce((teams, person, index) => {
+    if (index % 2) {
+      teams[1] += person;
+    } else {
+      teams[0] += person;
+    }
+    return teams;
+  }, [0, 0]);
+  return sums;
+}
+
+alternatingSums([]);
+
 function reverseInParentheses(inputString) {
   const regexp = /\((\w+)\)/;
   let split;
