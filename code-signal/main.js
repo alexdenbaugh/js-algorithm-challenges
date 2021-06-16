@@ -1,3 +1,17 @@
+// eslint-disable-next-line no-unused-vars
+function arrayChange(inputArray) {
+  let moves = 0;
+  let difference;
+  for (let i = 1; i < inputArray.length; i++) {
+    if (inputArray[i] <= inputArray[i - 1]) {
+      difference = inputArray[i - 1] - inputArray[i] + 1;
+      moves += difference;
+      inputArray[i] += difference;
+    }
+  }
+  return moves;
+}
+
 function areSimilar(a, b) {
   if (a.length !== b.length) {
     return false;
