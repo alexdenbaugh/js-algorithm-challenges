@@ -1,3 +1,31 @@
+function areSimilar(a, b) {
+  if (a.length !== b.length) {
+    return false;
+  }
+  let strike = 0;
+  const swap = [];
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
+      if (strike > 2) {
+        return false;
+      } else {
+        strike++;
+        swap.push(a[i], b[i]);
+      }
+    }
+  }
+  if (strike > 2) {
+    return false;
+  } else if (strike > 1 && (swap[0] === swap[3] && swap[1] === swap[2])) {
+    return true;
+  } else if (strike === 0) {
+    return true;
+  }
+  return false;
+}
+
+areSimilar([1], [1]);
+
 function addBorder(picture) {
   const bordered = picture.map(string => {
     return `*${string}*`;
@@ -8,7 +36,7 @@ function addBorder(picture) {
   return bordered;
 }
 
-addBorder([]);
+addBorder(['a']);
 
 function alternatingSums(a) {
   const sums = a.reduce((teams, person, index) => {
