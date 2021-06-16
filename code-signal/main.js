@@ -1,4 +1,15 @@
 // eslint-disable-next-line no-unused-vars
+function areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) {
+  const you = yourLeft > yourRight
+    ? [yourLeft, yourRight]
+    : [yourRight, yourLeft];
+  const friend = friendsLeft > friendsRight
+    ? [friendsLeft, friendsRight]
+    : [friendsRight, friendsLeft];
+  return !!(you[0] === friend[0] && you[1] === friend[1]);
+}
+
+// eslint-disable-next-line no-unused-vars
 function palindromeRearranging(inputString) {
   let i;
   let strike = 0;
