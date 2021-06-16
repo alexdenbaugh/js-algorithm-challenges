@@ -1,4 +1,32 @@
 // eslint-disable-next-line no-unused-vars
+function palindromeRearranging(inputString) {
+  let i;
+  let strike = 0;
+  const pair = inputString.split('').sort();
+  if (inputString.length % 2) {
+    for (i = 0; i < pair.length;) {
+      if (pair[i] !== pair[i + 1]) {
+        if (strike === 1) {
+          return false;
+        } else {
+          strike++;
+          i++;
+        }
+      } else {
+        i += 2;
+      }
+    }
+  } else {
+    for (i = 0; i < pair.length; i += 2) {
+      if (pair[i] !== pair[i + 1]) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+// eslint-disable-next-line no-unused-vars
 function arrayChange(inputArray) {
   let moves = 0;
   let difference;
