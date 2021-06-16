@@ -1,4 +1,16 @@
-// eslint-disable-next-line no-unused-vars
+// eslint-disable no-unused-vars
+function arrayMaximalAdjacentDifference(inputArray) {
+  let maxDif = Math.abs(inputArray[0] - inputArray[1]);
+  let dif;
+  for (let i = 1; i < inputArray.length; i++) {
+    dif = Math.abs(inputArray[i] - inputArray[i - 1])
+    if (dif > maxDif) {
+      maxDif = dif;
+    }
+  }
+  return maxDif;
+}
+
 function areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) {
   const you = yourLeft > yourRight
     ? [yourLeft, yourRight]
@@ -9,7 +21,6 @@ function areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) {
   return !!(you[0] === friend[0] && you[1] === friend[1]);
 }
 
-// eslint-disable-next-line no-unused-vars
 function palindromeRearranging(inputString) {
   let i;
   let strike = 0;
