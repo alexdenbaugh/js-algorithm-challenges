@@ -1,4 +1,16 @@
-// eslint-disable-next-line no-unused-vars
+function isIPv4Address(inputString) {
+  inputString = inputString.split('.');
+  if (inputString.length !== 4) {
+    return false;
+  }
+  for (let i = 0; i < inputString.length; i++) {
+    if (isNaN(Number(inputString[i])) || inputString[i] === '' || (inputString[i][0] === '0' && inputString[i].length > 1) || Number(inputString[i]) > 255) {
+      return false;
+    }
+  }
+  return true;
+}
+
 function arrayMaximalAdjacentDifference(inputArray) {
   let maxDif = Math.abs(inputArray[0] - inputArray[1]);
   let dif;
@@ -11,7 +23,6 @@ function arrayMaximalAdjacentDifference(inputArray) {
   return maxDif;
 }
 
-// eslint-disable-next-line no-unused-vars
 function areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) {
   const you = yourLeft > yourRight
     ? [yourLeft, yourRight]
@@ -22,7 +33,6 @@ function areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) {
   return !!(you[0] === friend[0] && you[1] === friend[1]);
 }
 
-// eslint-disable-next-line no-unused-vars
 function palindromeRearranging(inputString) {
   let i;
   let strike = 0;
@@ -50,7 +60,6 @@ function palindromeRearranging(inputString) {
   return true;
 }
 
-// eslint-disable-next-line no-unused-vars
 function arrayChange(inputArray) {
   let moves = 0;
   let difference;
@@ -90,8 +99,6 @@ function areSimilar(a, b) {
   return false;
 }
 
-areSimilar([1], [1]);
-
 function addBorder(picture) {
   const bordered = picture.map(string => {
     return `*${string}*`;
@@ -101,8 +108,6 @@ function addBorder(picture) {
   bordered.push(ends);
   return bordered;
 }
-
-addBorder(['a']);
 
 function alternatingSums(a) {
   const sums = a.reduce((teams, person, index) => {
@@ -115,8 +120,6 @@ function alternatingSums(a) {
   }, [0, 0]);
   return sums;
 }
-
-alternatingSums([]);
 
 function reverseInParentheses(inputString) {
   const regexp = /\((\w+)\)/;
@@ -140,5 +143,3 @@ function reverseInParentheses(inputString) {
   }
   return inputString;
 }
-
-reverseInParentheses('()');
